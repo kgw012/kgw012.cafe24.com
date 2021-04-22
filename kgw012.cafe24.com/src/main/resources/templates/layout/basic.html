@@ -48,6 +48,19 @@
 		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 		<script th:src="@{/js/ie10-viewport-bug-workaround.js}"></script>
 		
+		
+		<th:block layout:fragment="script">
+			<script th:inline="javascript">
+
+				/*<![CDATA[*/
+				$(document).ready(function() {
+				    var main_route = (window.location.pathname.split("/")[1]).split(".do")[0];
+				    $('#navbar_' + main_route).addClass('active');
+				});
+				/*]]>*/
+			</script>
+		</th:block>
+		
 		<!-- custom script fragment -->
 		<th:block layout:fragment="script"></th:block>
 	</body>
