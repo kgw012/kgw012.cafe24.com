@@ -35,31 +35,36 @@
 		
 		<footer class="footer">
 			<div class="container">
-				<p class="text-muted">Place sticky footer content here.</p>
+				<p class="text-muted text-right">
+					<i class="far fa-envelope"></i> kgw012@gmail.com&nbsp;
+					<i class="fas fa-phone"></i> 010-5675-8704&nbsp;&nbsp;&nbsp;
+					Links&nbsp;
+					<a href="https://github.com/kgw012"><i class="fab fa-github fa-lg"></i></a>
+					<a href="https://www.instagram.com/wooong_gil/"><i class="fab fa-instagram fa-lg"></i></a>
+				</p>
+				
 			</div>
 		</footer>
 	
 	
-		<!-- Bootstrap core JavaScript
-		================================================== -->
 		<!-- Placed at the end of the document so the pages load faster -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 		<script th:src="@{/js/bootstrap.min.js}"></script>
 		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 		<script th:src="@{/js/ie10-viewport-bug-workaround.js}"></script>
+		<!-- Fontawesome -->
+		<script src="https://kit.fontawesome.com/8062f7f8dc.js" crossorigin="anonymous"></script>
 		
 		
-		<th:block layout:fragment="script">
-			<script th:inline="javascript">
+		<script th:inline="javascript">
 
-				/*<![CDATA[*/
-				$(document).ready(function() {
-				    var main_route = (window.location.pathname.split("/")[1]).split(".do")[0];
-				    $('#navbar_' + main_route).addClass('active');
-				});
-				/*]]>*/
-			</script>
-		</th:block>
+			/*<![CDATA[*/
+			$(document).ready(function() {
+			    var main_route = (window.location.pathname.split("/")[1]).split(".do")[0];
+			    $('#navbar_' + main_route).addClass('active');
+			});
+			/*]]>*/
+		</script>
 		
 		<!-- custom script fragment -->
 		<th:block layout:fragment="script"></th:block>

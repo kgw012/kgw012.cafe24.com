@@ -5,18 +5,14 @@
 	 	layout:decorate="~{layout/basic.html}">
 	 	
 	<head>
-		<title>Index | 김길웅 홈페이지</title>
+		<title>Portfolio | 김길웅 홈페이지</title>
 	</head>
 	
 	<body>
 		<th:block layout:fragment="content">
-			<div class="jumbotron">
-				<h1>Navbar example</h1>
-				<p>This example is a quick exercise to illustrate how the default, static and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
-				<p>To see the difference between static and fixed top navbars, just scroll.</p>
-				<p>
-					<a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
-				</p>
+			<div th:replace="resume/resume_jumbotron :: jumbotron"></div>
+			<div class="page-header">
+				<h2>Projects</h2>
 			</div>
 		</th:block>
 	</body>
