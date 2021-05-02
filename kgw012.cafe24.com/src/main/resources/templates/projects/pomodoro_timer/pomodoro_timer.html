@@ -17,92 +17,58 @@
 					<small>Pomodoro Timer</small>
 				</h1>
 				<br/><br/><br/>
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h2 class="panel-title">선택된 과제</h2>
+					</div>
+					<div id="selected_work" class="panel-body">
+						과제과제~!
+					</div>
+				</div>
 				<h1>
 					<strong id="timer">25:00</strong>
 				</h1>
 				<br/><br/>
 				<button id="start_btn" type="button" class="btn btn-primary btn-lg">Start!</button>
 			</div>
+			<div class="row text-center">
+				<div class="col-md-4">
+					<div class="panel panel-info">
+						<div class="panel-heading">
+							<div class="pull-right">
+								<button id="add_work_btn" type="button" class="btn btn-info btn-xs">추가 +</button>
+							</div>
+							<h2 class="panel-title">과제 목록</h2>
+						</div>
+						<ul id="work_ul" class="list-group">
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="panel panel-success">
+						<div class="panel-heading">
+							<h2 class="panel-title">완료된 과제</h2>
+						</div>
+						<div class="panel-body">
+							과제과제~!
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="panel panel-danger">
+						<div class="panel-heading">
+							<h2 class="panel-title">지난 뽀모들</h2>
+						</div>
+						<div class="panel-body">
+							과제과제~!
+						</div>
+					</div>
+				</div>
+			</div>
 		</th:block>
 		
 		<th:block layout:fragment="script">
-			<!-- setting timer -->
-			<script th:inline="javascript">
-				/*<![CDATA[*/
-					//알림 권한 요청
-					function getNotificationPermission() {
-					    // 브라우저 지원 여부 체크
-					    if (!("Notification" in window)) {
-					        alert("데스크톱 알림을 지원하지 않는 브라우저입니다.");
-					    }
-					    // 데스크탑 알림 권한 요청
-					    Notification.requestPermission(function (result) {
-					        // 권한 거절
-					        if(result == 'denied') {
-					            alert('알림을 차단하셨습니다.\n브라우저의 사이트 설정에서 변경하실 수 있습니다.');
-					            return false;
-					        }
-					    });
-					}
-				
-					getNotificationPermission();
-
-					var time = 0;
-					var min = 0;
-					var sec = 0;
-					var flag = true;
-					var timer;
-					
-					$('#start_btn').click(function(){
-						if(flag) {
-							time = 1499;
-						}else{
-							time = 299;
-						}
-						
-						$(this).attr('disabled', true);
-						
-						if(flag) {
-							$(this).text('Rest..');
-							$(this).attr('class', 'btn btn-success btn-lg')
-						}else {
-							$(this).text('Start!');
-							$(this).attr('class', 'btn btn-primary btn-lg')
-						}
-						
-						timer = setInterval(function(){
-							min = parseInt(time / 60);
-							sec = parseInt(time % 60);
-							
-							if(min / 10 < 1){
-								min = "0" + min;
-							}
-							if(sec / 10 < 1){
-								sec = "0" + sec;
-							}
-							$('#timer').text(min + ":" + sec);
-							
-							time--;
-							
-							if(time < 0){
-								$('#start_btn').attr('disabled', false);
-								if(flag){
-									clearInterval(timer);
-									flag = false;
-									$('#timer').text("05:00");
-									new Notification("집중 끝!", {body:'집중하는 시간이 종료되었습니다.'});
-								}else{
-									clearInterval(timer);
-									flag = true;
-									$('#timer').text("25:00");
-									new Notification("휴식 종료", {body:'휴식 시간이 종료되었습니다.'});
-								}
-								return;
-							}
-						}, 1000);
-					});
-				/*]]>*/
-			</script>
+			<script th:src="@{/js/pomodoro.js}"></script>
 		</th:block>
 	</body>
 </html>
