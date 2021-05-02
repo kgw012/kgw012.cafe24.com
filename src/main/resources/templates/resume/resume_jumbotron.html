@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html 	lang="ko"
+	 	xmlns:th="http://www.thymeleaf.org">
+	 	
+		<th:block th:fragment="jumbotron">
+			<div class="jumbotron">
+				<div class="row">
+					<div class="col-sm-3">
+						<br/>
+						<br/>
+						<img class="img-circle img-responsive" th:src="@{/img/portfolio_img.jpg}">
+					</div>
+					<div class="col-sm-1">
+					</div>
+					<div class="col-sm-8">
+						<h1 style="font-size:55px;"><strong>김길웅</strong>&nbsp;<small style="font-size:25px;">백엔드 개발자</small></h1>
+						<br/>
+						<p>
+							<i class="fas fa-phone-square-alt fa-sm"></i> 010-5675-8704<br/>
+							<i class="fas fa-envelope fa-sm"></i> kgw012@gmail.com<br/>
+							<i class="fab fa-github fa-sm"></i>
+								<a href="https://github.com/kgw012">https://github.com/kgw012</a><br/>
+							<br/>
+							<strong>기술 스택</strong>
+							<br/>
+							<kbd>#spring</kbd> <kbd>#java</kbd> <kbd>#springboot</kbd>
+						</p>
+					</div>
+				</div>
+			</div>
+		</th:block>
+		
+</html>
